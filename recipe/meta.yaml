@@ -16,7 +16,7 @@ build:
     - jupyter-console = jupyter_console.app:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
