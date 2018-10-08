@@ -10,17 +10,17 @@ source:
 
 build:
   number: 0
-  noarch: python
+  skip: True  # [py27]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - jupyter-console = jupyter_console.app:main
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
   run:
-    - python >=3.5
+    - python
     - jupyter_client
     - ipython
     - ipykernel
