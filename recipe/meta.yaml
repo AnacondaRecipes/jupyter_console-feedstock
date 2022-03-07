@@ -1,4 +1,4 @@
-{% set version = "6.4.0" %}
+{% set version = "6.4.3" %}
 
 package:
   name: jupyter_console
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jupyter_console/jupyter_console-{{ version }}.tar.gz
-  sha256: 242248e1685039cd8bff2c2ecb7ce6c1546eb50ee3b08519729e6e881aec19c7
+  sha256: 55f32626b0be647a85e3217ddcdb22db69efc79e8b403b9771eb9ecc696019b5
 
 build:
   number: 0
