@@ -10,7 +10,7 @@ source:
 
 build:
   number: 0
-  noarch: python
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - jupyter-console = jupyter_console.app:main
@@ -19,10 +19,10 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=40.8.0
+    - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python
     - jupyter_client >=7.0.0
     - ipython
     - ipykernel
@@ -30,17 +30,18 @@ requirements:
     - pygments
 
 test:
+  imports:
+    - jupyter_console
   requires:
     - pip
   commands:
     - pip check
     - jupyter-console -h
-  imports:
-    - jupyter_console
 
 about:
   home: https://jupyter.org
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
   summary: Jupyter terminal console
   description: |
