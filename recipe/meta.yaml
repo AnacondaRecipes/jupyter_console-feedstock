@@ -37,6 +37,7 @@ test:
   commands:
     - pip check
     - jupyter-console -h
+    - jupyter kernelspec list
 
 about:
   home: https://jupyter.org
