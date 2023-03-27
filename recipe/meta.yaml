@@ -10,8 +10,9 @@ source:
 
 build:
   number: 0
-  # Upstream supports python 3.7 but would need to use jupyter_core dependency v 4.12 exactly, which we don't have in the channel
-  skip: true  # [py<37]
+  # Upstream supports python 3.7 but would need to use jupyter_core dependency v 4.12 exactly, which we don't have in the channel, hence 
+  # restricting to py<38.
+  skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir --no-build-isolation -vvv
   entry_points:
     - jupyter-console = jupyter_console.app:main
