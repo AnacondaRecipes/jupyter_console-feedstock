@@ -1,4 +1,4 @@
-{% set version = "6.6.2" %}
+{% set version = "6.6.3" %}
 
 package:
   name: jupyter_console
@@ -6,13 +6,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jupyter_console/jupyter_console-{{ version }}.tar.gz
-  sha256: 7385dfed8a01fd51e3c98449dae24f38c1ba015d2073835e785671653a0967fc
+  sha256: 566a4bf31c87adbfadf22cdf846e3069b59a71ed5da71d6ba4d8aaad14a53539
 
 build:
   number: 0
-  # jupyter_core does not have support for python 3.7
+  # Upstream supports python 3.7 but to build for python 3.7, jupyter_console requires jupyter_core v 4.12 exactly, which we don't have in the channel. Hence 
+  # restricting to py<38.
   skip: true  # [py<38]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir --no-build-isolation -vvv
   entry_points:
     - jupyter-console = jupyter_console.app:main
 
@@ -53,7 +54,6 @@ about:
   description: |
     Jupyter console is a terminal frontend for kernels using the Jupyter protocol.
   doc_url: https://jupyter-console.readthedocs.io/
-  doc_source_url: https://github.com/jupyter/jupyter_console/blob/master/docs/index.rst
   dev_url: https://github.com/jupyter/jupyter_console
 
 extra:
