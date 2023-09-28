@@ -9,7 +9,7 @@ source:
   sha256: 566a4bf31c87adbfadf22cdf846e3069b59a71ed5da71d6ba4d8aaad14a53539
 
 build:
-  number: 0
+  number: 1
   # Upstream supports python 3.7 but to build for python 3.7, jupyter_console requires jupyter_core v 4.12 exactly, which we don't have in the channel. Hence 
   # restricting to py<38.
   skip: true  # [py<38]
@@ -23,7 +23,7 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - hatchling 1.8.0
+    - hatchling 1.18
   run:
     - python
     - jupyter_client >=7.0.0
