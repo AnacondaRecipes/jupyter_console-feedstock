@@ -23,7 +23,7 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - hatchling 1.18
+    - hatchling
   run:
     - python
     - jupyter_client >=7.0.0
